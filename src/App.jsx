@@ -1,15 +1,19 @@
 import { useState } from 'react'
  
-import './App.scss'
+// import './App.scss'
+import Nav from './Navigation/Nav'
+import Products from './Products/Products'
+import Recommended from './Recommended/Recommended'
+import Sidebar from './Sidebar/Sidebar'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <h1>React JS Advanced Filtering</h1>
-      </div>  
+        <Sidebar />
+        <Nav />
+        <Recommended />
+        <Products />
     </>
   )
 }
