@@ -41,7 +41,6 @@ function App() {
 
     // Selected Filter
     if(selected){
-      if(selected){
         filteredProducts = filteredProducts.filter(
           ({category, color, company, newPrice, title}) => 
             category === selected || 
@@ -50,7 +49,6 @@ function App() {
             newPrice === selected || 
             title ===  selected 
           )
-      }
     }
 
     return filteredProducts.map(({img,title, star, reviews, prevPrice, newPrice}) => ( 
@@ -66,12 +64,14 @@ function App() {
     />))
   }
 
+  const result = filteredData(products, selectedCategory, query);
+
   return (
     <>
-        <Sidebar />
-        <Nav />
-        <Recommended />
-        <Products />
+        <Sidebar handleChange={handleChange}/>
+        <Nav query={query} handleInputChange={handleInputChange}/>
+        <Recommended handleClick={handleClick}/>
+        <Products result={result}/>
     </>
   )
 }

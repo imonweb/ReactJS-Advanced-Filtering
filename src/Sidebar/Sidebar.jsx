@@ -3,7 +3,8 @@ import Colors from './Colors/Colors'
 import Price from './Price/Price'
 import './Sidebar.scss'
 
-const Sidebar = () => {
+const Sidebar = ({handleChange}) => {
+  // console.log(handleChange);
   return (
     <>
       <section className="sidebar">
@@ -11,9 +12,9 @@ const Sidebar = () => {
           <h1 className='sidebar__title'>🛒</h1>
         </div>
 
-        <Category />
-        <Price />
-        <Colors />
+        <Category handleChange={handleChange}/>
+        <Price handleChange={handleChange}/>
+        <Colors handleChange={handleChange}/>
       </section>
     </>
   )
