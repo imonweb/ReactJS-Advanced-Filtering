@@ -7,27 +7,34 @@ import Recommended from './Recommended/Recommended'
 import Sidebar from './Sidebar/Sidebar'
 
 // Data
+ 
 import products from './db/data';
 import Card from './components/Card'
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [query, setQuery] = useState("");
-
+  
   // Input Filter
-  const handleInputChange = event => {
+  const [query, setQuery] = useState("");
+  const handleInputChange = (event) => {
     setQuery(event.target.value)
-  }
+  };
 
-  const filteredItems = products.filter(product => product.title.toLowerCase().indexOf(query.toLocaleLowerCase() !== -1))
+  const filteredItems = products.filter( 
+    (product) => product.title.toLowerCase().indexOf(query.toLowerCase() ) !== -1)
+  
+
+  //  const filteredItems = products.filter(
+    // (product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+  // );
 
   // Radio Filter
-  const handleChange = event => {
+  const handleChange = (event) => {
     setSelectedCategory(event.target.value)
   }
 
   // Buttons Filter
-  const handleClick = event => {
+  const handleClick = (event) => {
     setSelectedCategory(event.target.value)
   }
 
